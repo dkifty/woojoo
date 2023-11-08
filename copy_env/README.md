@@ -18,4 +18,5 @@ conda create -n env_name_copy --clone env_name
 ```c
 jupyter kernelspec list # 커널 확인
 jupyter kernelspec uninstall env_name
+# rm -rf로 지워도 괜찮은듯 함
 ```
