@@ -1,2 +1,1 @@
-# woojoo
-하이염~
+Ubuntu Server setting
