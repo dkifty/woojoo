@@ -1,1 +1,1 @@
-하이염~~~
+print('hello world~')
