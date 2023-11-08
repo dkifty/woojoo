@@ -16,5 +16,6 @@ conda create -n env_name_copy --clone env_name
 
 3. 커널 삭제(jupyter)
 ```c
+jupyter kernelspec list # 커널 확인
 jupyter kernelspec uninstall env_name
 ```
