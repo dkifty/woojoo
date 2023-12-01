@@ -66,3 +66,17 @@ import torch
 print(torch.cuda.is_available())
 print(torch.cuda.get_device_name())
 ```
+
+# detection
+```c
+conda create -n detection python=3.9 -y
+conda activate torch
+
+conda install pytorch==1.10.1 torchvision==0.11.2 torchaudio==0.10.1 cudatoolkit=11.3 -c pytorch -c conda-forge
+pip install tensorflow-gpu==2.11.0
+
+pip install ipykernel
+python -m ipykernel install --user --name detection --display-name detection
+
+pip install pandas matplotlib seaborn scipy scikit-learn opencv-python labelme
+```
