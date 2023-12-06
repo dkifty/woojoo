@@ -70,7 +70,7 @@ print(torch.cuda.get_device_name())
 # detection
 ```c
 conda create -n detection python=3.9 -y
-conda activate torch
+conda activate detection
 
 conda install pytorch==1.10.1 torchvision==0.11.2 torchaudio==0.10.1 cudatoolkit=11.3 -c pytorch -c conda-forge
 pip install ultralytics
@@ -78,6 +78,33 @@ pip install tensorflow-gpu==2.11.0
 
 pip install ipykernel
 python -m ipykernel install --user --name detection --display-name detection
+
+pip install pandas matplotlib seaborn scipy scikit-learn opencv-python labelme
+```
+
+# YOLO v8 counting
+```c
+conda create -n counting python=3.9 -y
+conda activate counting
+
+pip install ultralytics
+git clone https://github.com/ifzhang/ByteTrack.git
+cd ByteTrack
+sed -i 's/onnx==1.8.1/onnx==1.9.0/g' requirements.txt
+pip3 install -q -r requirements.txt
+python3 setup.py -q develop
+pip install -q cython_bbox
+pip install -q onemetric
+pip install -q loguru lap thop
+
+pip uninstall protobuf
+pip install protobuf==3.19.0
+
+pip uninstall numpy
+pip install numpy==1.23.5
+
+pip install ipykernel
+python -m ipykernel install --user --name counting --display-name counting
 
 pip install pandas matplotlib seaborn scipy scikit-learn opencv-python labelme
 ```
