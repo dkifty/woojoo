@@ -108,3 +108,15 @@ python -m ipykernel install --user --name counting --display-name counting
 
 pip install pandas matplotlib seaborn scipy scikit-learn opencv-python labelme
 ```
+# NeRF-pytorch
+```c
+conda create -n nerf python=3.9 -y
+conda activate nerf
+
+git clone https://github.com/yenchenlin/nerf-pytorch.git
+cd nerf-pytorch
+
+pip install torch==1.11.0+cu113 torchvision==0.12.0+cu113 torchaudio==0.11.0 --extra-index-url https://download.pytorch.org/whl/cu113
+pip install imageio-ffmpeg matplotlib configargparse tensorboard tqdm opencv-python
+pip install imageio==2.9.0
+```
