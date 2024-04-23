@@ -1,0 +1,26 @@
+# set env
+conda create -n nerfstudio python=3.11.7
+conda activate nerf
+
+pip install torch==2.1.2+cu118 torchvision==0.16.2+cu118 --extra-index-url https://download.pytorch.org/whl/cu118
+
+conda install -c "nvidia/label/cuda-11.8.0" cuda-toolkit
+pip install ninja git+https://github.com/NVlabs/tiny-cuda-nn/#subdirectory=bindings/torch
+
+pip install nerfstudio
+
+# 2. colmap
+ns-process-data video --data GX010824.MP4 --output-dir ./ --matching-method exhaustive --sfm-tool colmap --num-frames-target 321 --num-downscales 0
+## parameters
+--matching-method 는 exhaustive로 (sequential 성능이 너무 안좋음)
+--sfm-tool -> colmap or hloc
+--num-downscales 0 -> 원래 이미지에 대해서만 / e.g. 3(default) downscale을 1/2 1/4 1/8해서 영상->이미지로 추출
+--num-frames-target 300 -> 비디오에서 300개 이미지 뺀다는거임(약 300개로 비슷하게 비례해서 추출해줌)
+
+
+
+
+## colmap method hloc 사용시
+git clone --recursive https://github.com/cvg/Hierarchical-Localization/
+cd Hierarchical-Localization/
+python -m pip install -e .
