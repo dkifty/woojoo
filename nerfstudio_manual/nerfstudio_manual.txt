@@ -1,4 +1,8 @@
-# set env
+# 0. 폴더에 비디오 파일 넣기
+# 그 폴더에서 실행
+# e.g. garlic 폴더 내에 
+
+# 1. set env
 conda create -n nerfstudio python=3.11.7
 conda activate nerf
 
@@ -35,3 +39,8 @@ ns-train nerfacto --data ./
 'depth-nerfacto', 'dnerf', 'generfacto', 'instant-ngp', 'instant-ngp-bounded', 'mipnerf', 'nerfacto', 'nerfacto-big', 'nerfacto-huge', 'neus', 'neus-facto', 'phototourism', 'semantic-nerfw', 'splatfacto', 'tensorf', 'vanilla-nerf', 'igs2gs', 'in2n', 'in2n-small', 'in2n-tiny', 'kplanes', 'kplanes-dynamic', 'lerf', 'lerf-big', 'lerf-lite', 'nerfplayer-nerfacto', 'nerfplayer-ngp', 'pynerf', 'pynerf-occupancy-grid', 'pynerf-synthetic', 'seathru-nerf', 'seathru-nerf-lite', 'tetra-nerf', 'tetra-nerf-original', 'volinga', 'zipnerf' 가능
 splatfacto 시 
 pip install gsplat==0.1.6
+
+## http://0.0.0.0:7007/ 
+## 학습 끝나면 적당한 크기로 crop
+## 1000000 포인트(default) 로 point cloud extract --> generate command에서 나오는 명령어 복사 / point num 은 수정 가능 -> 약 20000000이 적당
+## command 에서 ctrl+c 후 위 명령어 붙여넣기
