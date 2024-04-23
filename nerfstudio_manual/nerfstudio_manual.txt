@@ -25,4 +25,13 @@ git clone --recursive https://github.com/cvg/Hierarchical-Localization/
 cd Hierarchical-Localization/
 python -m pip install -e .
 
+## 다른 파라미터 수정 원할 시
+ns-process-data --help
+
 # 3. NERF
+ns-train nerfacto --data ./
+
+## nerfacto 대신...
+'depth-nerfacto', 'dnerf', 'generfacto', 'instant-ngp', 'instant-ngp-bounded', 'mipnerf', 'nerfacto', 'nerfacto-big', 'nerfacto-huge', 'neus', 'neus-facto', 'phototourism', 'semantic-nerfw', 'splatfacto', 'tensorf', 'vanilla-nerf', 'igs2gs', 'in2n', 'in2n-small', 'in2n-tiny', 'kplanes', 'kplanes-dynamic', 'lerf', 'lerf-big', 'lerf-lite', 'nerfplayer-nerfacto', 'nerfplayer-ngp', 'pynerf', 'pynerf-occupancy-grid', 'pynerf-synthetic', 'seathru-nerf', 'seathru-nerf-lite', 'tetra-nerf', 'tetra-nerf-original', 'volinga', 'zipnerf' 가능
+splatfacto 시 
+pip install gsplat==0.1.6
