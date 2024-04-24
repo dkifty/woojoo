@@ -14,7 +14,6 @@ FOLDERS = ['./data_annotated_train', './data_annotated_valid', './data_annotated
 FOLDERS_COCO = ['./data_dataset_coco_train', './data_dataset_coco_valid', './data_dataset_coco_test']  # you can change the name of coco form train/valid/test folder name // but dont do that.... please...
 annotation = 'annotations.json'  # default is annotations.json // if annotatino file have other name // annotation = annotations.json (string type)
 image_size=(3840,2160)           # if you have other size of image // image_size = (3840, 2160) (default / tuple(int, int))
-```
 
 # model
 batch = 16
@@ -36,20 +35,29 @@ show_label=True
 
 # device
 device = 0                       # device = 0 or 1 or 2 or 1,2 or cpu
+```
 
+```python
 from custom_data_preprocessing import make_label_file
 make_label_file('Color_checker', 'Flower', 'Fruit_ripen', 'Fruit_unripen', 'Obstacle', 'Old_leaves', 'Picking_point', 'Runner', 'Unidentified')
+```
 
+```python
 from custom_data_preprocessing import label_name_check
 label_name_check(img_format='jpg', label_format='json')
+```
 
+```python
 from custom_data_preprocessing import data_preprocessing
-
-# run
 data_preprocessing(label2coco = label2coco, coco2yolo = coco2yolo, img_format=img_format, label_format=label_format, change_label_name=change_label_name, split_rate=split_rate, FOLDERS = FOLDERS, FOLDERS_COCO = FOLDERS_COCO, annotation = annotation, image_size=image_size)
+```
 
+```python
 from make_yolo_config import make_yolo_config
 make_yolo_config()
+```
 
+```python
 from yolov8_run import yolov8
 yolov8(track=track, track_video=track_video, methods=methods, train=train, model_size=model_size, yolo_config='./yolo_configs/data/custom.yaml', imgsz=imgsz, epochs=epochs, batch=batch, device=device, iou=iou, conf=conf, save_txt=save_txt, save=save, show_conf=show_conf, show_label=show_label)
+```
