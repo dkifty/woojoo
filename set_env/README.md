@@ -88,6 +88,7 @@ conda create -n counting python=3.9 -y
 conda activate counting
 
 pip install ultralytics
+pip install pycocotools
 git clone https://github.com/ifzhang/ByteTrack.git
 cd ByteTrack
 sed -i 's/onnx==1.8.1/onnx==1.9.0/g' requirements.txt
@@ -102,6 +103,9 @@ pip install protobuf==3.19.0
 
 pip uninstall numpy
 pip install numpy==1.23.5
+
+pip uninstall torch torchvision torchaudio
+pip install torch==1.11.0+cu113 torchvision==0.12.0+cu113 torchaudio==0.11.0 --extra-index-url https://download.pytorch.org/whl/cu113
 
 pip install ipykernel
 python -m ipykernel install --user --name counting --display-name counting
