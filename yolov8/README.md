@@ -81,3 +81,8 @@ yolov8(track=track, track_video=track_video, methods=methods, train=train, model
 # 위의 파라미터만 잘 맞춰서 하면 yolo v8 돌아감
 ```
 - 결과는 생성된 results폴더에 저장하게 해놈
+```c
+## 참고 - 예측 라벨 색상 바꾸는 법
+anaconda - envs - 가상환경명 - lib - python3.11(버전에 맞는거) - site-packages - ultralytics - utils - plotting.py 들어가기
+class Colors에서 def __init__에서 hex안의 인자들 바꾸면 됨~
+```
