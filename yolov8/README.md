@@ -1,3 +1,6 @@
+- data_annotated폴더 생성 후 이미지, 라벨 파일 넣기
+- git clone으로 utils파일 가져오기
+
 ```c
 import sys
 sys.path.append('./utils')
