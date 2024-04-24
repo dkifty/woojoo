@@ -1,6 +1,8 @@
+```c
 import sys
 sys.path.append('./utils')
-
+```
+```python
 # parameters
 label2coco = True                # if True - make labelme format annotation to coco format annotation // if False show information of train/valid/test images, annotations for each classes already made
 coco2yolo = True          # if True - make coco format annotation to yolo format annotation and make yolo config files // if False just check the config files
@@ -12,6 +14,7 @@ FOLDERS = ['./data_annotated_train', './data_annotated_valid', './data_annotated
 FOLDERS_COCO = ['./data_dataset_coco_train', './data_dataset_coco_valid', './data_dataset_coco_test']  # you can change the name of coco form train/valid/test folder name // but dont do that.... please...
 annotation = 'annotations.json'  # default is annotations.json // if annotatino file have other name // annotation = annotations.json (string type)
 image_size=(3840,2160)           # if you have other size of image // image_size = (3840, 2160) (default / tuple(int, int))
+```
 
 # model
 batch = 16
