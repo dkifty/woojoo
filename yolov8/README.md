@@ -2,18 +2,19 @@
 import sys
 sys.path.append('./utils')
 ```
+
 ```python
 # parameters
-label2coco = True                # if True - make labelme format annotation to coco format annotation // if False show information of train/valid/test images, annotations for each classes already made
-coco2yolo = True          # if True - make coco format annotation to yolo format annotation and make yolo config files // if False just check the config files
-img_format = 'jpg'               # default is jpg // you can put other format of image files -> string type
-label_format = 'json'            # default is json // you can put other format of annotation files -> string type
-change_label_name = False        # you can change the label names in annotation files // format(a,b,c,d is str type) : change_label_name = {a:b, c:d}
-split_rate = False               # train/valid/test split rate // default is 0 - 0.9*0.8 / 0.9*0.8 - 0.9 / 0.9 - 1 // format(int type in list) : split_rate = [0.7, 0.2, 0.1]
-FOLDERS = ['./data_annotated_train', './data_annotated_valid', './data_annotated_test']                # you can change the name of train/valid/test folder name // but dont do that.... please...
-FOLDERS_COCO = ['./data_dataset_coco_train', './data_dataset_coco_valid', './data_dataset_coco_test']  # you can change the name of coco form train/valid/test folder name // but dont do that.... please...
-annotation = 'annotations.json'  # default is annotations.json // if annotatino file have other name // annotation = annotations.json (string type)
-image_size=(3840,2160)           # if you have other size of image // image_size = (3840, 2160) (default / tuple(int, int))
+label2coco = True                # labelme형식으로 된 데이터셋을 coco형식으로 바꿀것인지(True/False)
+coco2yolo = True                 # coco형식으로 된 데이터셋을 yolo형식으로 바꿀것인지(True/False)
+img_format = 'jpg'               # 가진 이미지 파일의 포멧
+label_format = 'json'            # 가진 annotation 파일의 포멧
+change_label_name = False        # 라벨링한 데이터 중 이름 한번에 바꾸고싶을때 // e.g. change_label_name = {a:b, c:d} -> a와 c로 라벨링 된거 전부 b,d로 각각 바뀜
+split_rate = False               # 학습/검증/테스트 데이터세트 비율 // default is 0 - 0.9*0.8, 0.9*0.8, 0.9 / 0.9  // e.g. split_rate = [0.7, 0.2, 0.1]
+FOLDERS = ['./data_annotated_train', './data_annotated_valid', './data_annotated_test']                # 혹시나 정말 혹시나 폴더 명이 맘에 안들면 바꿀수있음... // 안하는거 추천(어디서 에러뜰지 모름..)
+FOLDERS_COCO = ['./data_dataset_coco_train', './data_dataset_coco_valid', './data_dataset_coco_test']  # 혹시나 정말 혹시나 폴더 명이 맘에 안들면 바꿀수있음... // 안하는거 추천(어디서 에러뜰지 모름..)
+annotation = 'annotations.json'  # annotation파일 명 바꾸고싶을때... // annotation = annotations.json (string type) // 안하는거 추천
+image_size=(3840,2160)           # 가진 이미지 크기 // image_size = (3840, 2160) (default / tuple(int, int))
 
 # model
 batch = 16
