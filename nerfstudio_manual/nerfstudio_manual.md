@@ -71,4 +71,3 @@ cd data/garlic
 
 python ../../scripts/colmap2nerf.py --video_in GX010824.MP4 --video_fps 3 --run_colmap --colmap_matcher exhaustive --aabb_scale 16 --overwrite
 ```
-```
