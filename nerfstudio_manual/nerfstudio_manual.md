@@ -2,6 +2,7 @@
 # 그 폴더에서 실행
 
 # 1. set env
+```c
 conda create -n nerfstudio python=3.11.7
 conda activate nerf
 
@@ -11,8 +12,10 @@ conda install -c "nvidia/label/cuda-11.8.0" cuda-toolkit
 pip install ninja git+https://github.com/NVlabs/tiny-cuda-nn/#subdirectory=bindings/torch
 
 pip install nerfstudio
+```
 
 # 2. colmap
+```c
 ns-process-data video --data GX010824.MP4 --output-dir ./ --matching-method exhaustive --sfm-tool colmap --num-frames-target 321 --num-downscales 0
 
 ## parameters
@@ -30,22 +33,27 @@ python -m pip install -e .
 
 ## 다른 파라미터 수정 원할 시
 ns-process-data --help
+```
 
 # 3. NERF
+```c
 ns-train nerfacto --data ./
 
 ## nerfacto 대신...
 'depth-nerfacto', 'dnerf', 'generfacto', 'instant-ngp', 'instant-ngp-bounded', 'mipnerf', 'nerfacto', 'nerfacto-big', 'nerfacto-huge', 'neus', 'neus-facto', 'phototourism', 'semantic-nerfw', 'splatfacto', 'tensorf', 'vanilla-nerf', 'igs2gs', 'in2n', 'in2n-small', 'in2n-tiny', 'kplanes', 'kplanes-dynamic', 'lerf', 'lerf-big', 'lerf-lite', 'nerfplayer-nerfacto', 'nerfplayer-ngp', 'pynerf', 'pynerf-occupancy-grid', 'pynerf-synthetic', 'seathru-nerf', 'seathru-nerf-lite', 'tetra-nerf', 'tetra-nerf-original', 'volinga', 'zipnerf' 가능
 splatfacto 시 
 pip install gsplat==0.1.6
+```
 
+```python
 ## http://0.0.0.0:7007/ 
 ## 학습 끝나면 적당한 크기로 crop
 ## 1000000 포인트(default) 로 point cloud extract --> generate command에서 나오는 명령어 복사 / point num 은 수정 가능 -> 약 20000000이 적당
 ## command 에서 ctrl+c 후 위 명령어 붙여넣기
-
+```
 
 # instant-ngp로 colmap
+```c
 conda create -n instant-ngp python=3.11
 git clone --recursive https://github.com/nvlabs/instant-ngp
 
@@ -62,3 +70,5 @@ mkdir data/garlic ##'garlic'
 cd data/garlic
 
 python ../../scripts/colmap2nerf.py --video_in GX010824.MP4 --video_fps 3 --run_colmap --colmap_matcher exhaustive --aabb_scale 16 --overwrite
+```
+```
