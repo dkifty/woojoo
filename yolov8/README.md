@@ -38,7 +38,7 @@ show_conf=True                   # detecting 시각화 할 때 conf score와 lab
 show_label=True
 
 # device
-device = 0                       # device = 0 or 1 or 2 or 1,2 or cpu
+device = 0                       # device = 0 or 1 or 2 or '1,2' or 'cpu'
 ```
 
 ```python
