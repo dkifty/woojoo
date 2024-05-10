@@ -77,7 +77,7 @@ make_yolo_config()
 
 ```python
 from yolov8_run import yolov8
-yolov8(track=track, track_video=track_video, methods=methods, train=train, model_size=model_size, yolo_config='./yolo_configs/data/custom.yaml', imgsz=imgsz, epochs=epochs, batch=batch, device=device, iou=iou, conf=conf, save_txt=save_txt, save=save, show_conf=show_conf, show_label=show_label)
+yolov8(track=track, track_video=track_video, methods=methods, train=train, model_size=model_size, yolo_config='./yolo_configs/data/custom.yaml', imgsz=resize_img, epochs=epochs, batch=batch, device=device, iou=iou, conf=conf, save_txt=save_txt, save=save, show_conf=show_conf, show_label=show_label)
 # 위의 파라미터만 잘 맞춰서 하면 yolo v8 돌아감
 ```
 - 결과는 생성된 results폴더에 저장하게 해놈
