@@ -403,12 +403,27 @@ def coco2yolo(annotation = 'annotations.json', image_size=(3840,2160)):
     for b in list(range(df['img_no'].unique().shape[0])):
         anno_image_name = anno['images'][b]['file_name'].split('/')[-1]
         img_name.append(anno_image_name)
+        
+    img_width = []
+    for aa in list(range(df['img_no'].unique().shape[0])):
+        img_width.append(anno['images'][aa]['width'])
+        
+    img_height= []
+    for aa in list(range(df['img_no'].unique().shape[0])):
+        img_height.append(anno['images'][aa]['height'])
+    df['img_width'] = 0
+    df['img_height'] = 0
+
+    for aa,bb,cc in zip(range(len(img_name)), img_width, img_height):
+        df.loc[df['img_no']==aa, 'img_width'] = bb
+        df.loc[df['img_no']==aa, 'img_height'] = cc
     
     c = list(range(df['img_no'].unique().shape[0]))
     for d,e in zip(img_name, c):
         df.loc[(df['img_no'] == e, 'img_no')] = d
     df['labels'] = df['label_no']
     
+
     for f, g in zip(list(range(len(label_list_check_))), label_list_check_):
         df.loc[(df['label_no'] == f+1), 'label_no'] = g
         
@@ -419,16 +434,15 @@ def coco2yolo(annotation = 'annotations.json', image_size=(3840,2160)):
 
     seg_x = []
     seg_y = []
-
-    for i in df.seg.tolist():
+    
+    for i, i_width, i_height in zip(df.seg.tolist(), df.img_width.tolist(), df.img_height.tolist()):
         seg_x_ = []
         seg_y_ = []
-
         for a, b in enumerate(i):
             if a%2 == 0:
-                seg_x_.append(b/width)
+                seg_x_.append(b/i_width)
             if a%2 == 1:
-                seg_y_.append(b/height)
+                seg_y_.append(b/i_height)
         seg_x.append(seg_x_)
         seg_y.append(seg_y_)
     
@@ -459,10 +473,10 @@ def coco2yolo(annotation = 'annotations.json', image_size=(3840,2160)):
     df['bbox_x_centre'] = df['bbox_x_min'] + df['w'] / 2
     df['bbox_y_centre'] = df['bbox_y_min'] + df['h'] / 2
     
-    df['x_centre_yolo'] = df['bbox_x_centre'] / width
-    df['y_centre_yolo'] = df['bbox_y_centre'] / height
-    df['w_yolo'] = df['w'] / width
-    df['y_yolo'] = df['h'] / height
+    df['x_centre_yolo'] = df['bbox_x_centre'] / df['img_width']
+    df['y_centre_yolo'] = df['bbox_y_centre'] / df['img_height']
+    df['w_yolo'] = df['w'] / df['img_width']
+    df['y_yolo'] = df['h'] / df['img_height']
 
     df.to_csv(annotation.replace('json', 'csv'))
     
